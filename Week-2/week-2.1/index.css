@@ -1,0 +1,49 @@
+#info {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    padding-bottom: 30px;
+}
+
+#form {
+    width: 40%;
+    margin: auto;
+    border: 2px solid green;
+    border-radius: 10px;
+}
+
+.inputDiv {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#submit input:first-child {
+    width: 80px;
+    padding: 10px;
+}
+
+@media (min-width: 200px){
+    #info {
+        display: flex;
+        flex-direction: column;
+    }
+    #form {
+        width: 90%;
+    }
+}
+@media (min-width: 600px){
+    #info {
+        display: flex;
+        flex-direction: row;
+    }
+    #form {
+        width: 60%;
+    }
+}

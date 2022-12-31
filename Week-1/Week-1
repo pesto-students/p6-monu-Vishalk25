@@ -1,1 +1,75 @@
 
+Exercise 1.1
+
+When we point your browser at a URL like https://xyz.dev/hello-world.
+
+https:// is the scheme. HTTPS stands for Hypertext Transfer Protocol Secure. This scheme tells the browser to make a connection to the server using Transport Layer Security, or TLS. TLS is an encryption protocol to secure communications over the Internet.
+
+Then comes the domain (xyz.dev) your browser has to figure out which server on the Internet is hosting the site. It does this by looking up the domain, xyz.dev, to find the address.
+Each device on the Internet — servers, cell phones, your smart refrigerator — all have a unique address called an IP address. An IP address contains four numbered parts: ex. 203.0.113.0
+But numbers like this are hard to remember! That’s where domain names come in. xyz.dev is much easier to remember.
+
+When we typed this URL into your browser, hello-world is the name of the resource on the website you want to view.
+(https://aws.amazon.com/blogs/mobile/what-happens-when-you-type-a-url-into-your-browser/)
+
+THE BROWSERS MAIN COMPONENTS :
+1. The user interface:
+This includes the address bar, back/forward button, bookmarking menu, etc. Every part of the browser display except the window where you see the requested page.
+
+2. The browser engine: marshals actions between the UI and the rendering engine.
+
+3. The rendering engine :
+responsible for displaying requested content. For example if the requested content is HTML, the rendering engine parses HTML and CSS, and displays the parsed content on the screen.
+
+4. Networking:
+For network calls such as HTTP requests, using different implementations for different platform behind a platform-independent interface.
+
+5. UI backend:
+Used for drawing basic widgets like combo boxes and windows. This backend exposes a generic interface that is not platform specific. Underneath it uses operating system user interface methods.
+
+6. JavaScript interpreter:
+Used to parse and execute JavaScript code.
+
+7. Data storage:
+This is a persistence layer. The browser may need to save all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexedDB, WebSQL and FileSystem.
+(https://www.ques10.com/p/19744/what-are-the-major-components-of-a-web-browser-d-1/)
+
+RENDERING ENGINE OF BROWSER.
+A rendering engine is software that draws text and images on the screen. The engine draws structured text from a document (often HTML), and formats it properly based on the given style declarations (often given in CSS)
+(https://www.browserstack.com/guide/browser-rendering-engine)
+
+PARSING (HTML, CSS, ETC)
+Parsing and Rendering turn the HTML content into a web page with colors and backgrounds and pictures.
+HTML Parsing: HTML Text -> Tokenization -> DOM Tree
+CSS Parsing: CSS Text -> Tokenization -> CSSOM Tree
+DOM and CSSOM are merged to form a Render Tree
+Render Tree has all the information required to mark and paint the screen.
+Render Tree -> Layout -> Paint
+The layout does the maths for placing the elements
+Paint paints the elements with colors, backgrounds, shadows, etc.
+(https://dev.to/saurabhdaware/html-parsing-and-rendering-here-s-what-happens-when-you-type-url-and-press-enter-3b2o)
+
+SCRIPT PROCESSOR IN BROWSER
+The script processor executes Javascript code to process an event. The processor uses a pure Go implementation of ECMAScript 5.1 and has no external dependencies. This can be useful in situations where one of the other processors doesn’t provide the functionality you need to filter events.
+
+RENDER TREE
+Render tree contains only the nodes required to render the page.
+To construct the render tree, the browser does the following:
+
+1. Starting at the root of the DOM tree, traverse each visible node.
+
+    Some nodes are not visible (for example, script tags, meta tags, and so on), and are omitted since they are not reflected in the rendered output.
+    Some nodes are hidden via CSS and are also omitted from the render tree; for example, the span node---in the example above---is missing from the render tree because we have an explicit rule that sets the "display: none" property on it.
+2. For each visible node, find the appropriate matching CSSOM rules and apply them.
+3. Emit visible nodes with content and their computed styles.
+(https://web.dev/critical-rendering-path-render-tree-construction/)
+
+ORDER OF SCRIPT TAG:
+Script tags are executed in the order they appear.
+Functionally this means you can significantly slow down your site if you have slow scripts loading early in the page. It also means scripts which appear later on the page can depend on things scripts which appear earlier have done.
+Elements on the page won’t render until all the script tags preceding them have loaded and executed.
+(https://eager.io/blog/everything-I-know-about-the-script-tag/)
+
+LAYOUT AND PAINT:
+The "Layout" event captures the render tree construction, position, and size calculation in the Timeline.
+When layout is complete, the browser issues "Paint Setup" and "Paint" events, which convert the render tree to pixels on the screen.

@@ -1,0 +1,83 @@
+#main {
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 10%;
+}
+
+.children:hover {
+    /* transform: rotate(-180deg); */
+    animation-name: animation1, animation2, animation3, animation4, animation5, animation6, animation7, animation8;
+    animation-duration: 2s;
+}
+
+#child1 {
+    height: 70px;
+    width: 70px;
+    background-color: red;
+    transition-property: all;
+}
+
+@keyframes animation1 {
+    to {
+        transform: translate(-170px);
+    }
+}
+@keyframes animation2 {
+    to {
+        /* transform: rotate(-90deg); */
+    }
+}
+
+#child2 {
+    height: 70px;
+    width: 70px;
+    background-color: blue;
+    transition-property: all;
+}
+
+@keyframes animation3 {
+    to {
+        transform: translate(-70px);
+    }
+}
+@keyframes animation4 {
+    to {
+        /* transform: rotate(90deg); */
+    }
+}
+
+#child3 {
+    height: 70px;
+    width: 70px;
+    background-color: yellow;
+}
+
+@keyframes animation5 {
+    to {
+        transform: translate(60px);
+    }
+}
+@keyframes animation6 {
+    to {
+        /* transform: rotate(90deg); */
+    }
+}
+
+#child4 {
+    height: 70px;
+    width: 70px;
+    background-color: green;
+}
+
+@keyframes animation7 {
+    to {
+        transform: translate(60px);
+    }
+}
+@keyframes animation8 {
+    to {
+        /* transform: rotate(-90deg); */
+    }
+}
